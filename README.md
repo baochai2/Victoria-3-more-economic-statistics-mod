@@ -1,7 +1,9 @@
-# Overview
+<h1 align="center>
+    More Economic Statistics
+</h1>
 
-This is a Victoria 3 mod for Victoria 3 that introduces more economic statistics including GDP growth rate, debt growth rate and visualizes them.
+**More Economic Statistics** is a Victoria 3 mod for Victoria 3 that introduces more economic statistics including GDP growth rate, debt growth rate and visualizes them.
 
-# Supported Version
+## Supported Version
 
 1.9.8
