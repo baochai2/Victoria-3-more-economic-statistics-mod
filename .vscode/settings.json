@@ -1,0 +1,7 @@
+{
+    "[yaml]": {
+        "files.encoding": "utf8bom"
+    },
+    "files.eol": "\n",
+    "files.autoGuessEncoding": true
+}
