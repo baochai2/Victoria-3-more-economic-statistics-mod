@@ -1,0 +1,16 @@
+on_yearly_pulse = {
+    effect = {
+        every_country = {
+            if = {
+                limit = {
+                    gdp > 0
+                    has_variable = last_gdp
+                }
+                set variable = {
+                    name = gdp_growth_rate
+                    value = (gdp - last_gdp) / last_gdp
+                }
+            }
+        }
+    }
+}

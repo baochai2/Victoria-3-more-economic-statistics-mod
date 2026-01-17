@@ -1,0 +1,3 @@
+l_english:
+ TOOLTIP_GDP_GROWTH_COMMON:0 "Annual projected [concept_gdp_growth_rate]: #variable $NETGROWTHRATE|+=%$#! (#variable $NETGROWTH|=*$#!)"
+ GDP_TOOLTIP:1 "#header [concept_gdp]#!\n[Country.GetAdjective] $GDP_SHORT$: #N @money![Country.GetGDP|Dv]#! ([Country.GetGDPRanking])\n\n$TOOLTIP_DELIMITER$\nGDP per Capita: #variable @money![Country.GetGDPPerCapita|2*]#! ([Country.GetGDPPerCapitaRanking])\n\n"

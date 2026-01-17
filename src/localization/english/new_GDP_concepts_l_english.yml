@@ -1,0 +1,4 @@
+l_english:
+ concept_gdp_growth_rate:0 "Gross Domestic Product Growth Rate"
+ concept_gdp_growth_rate_short:0 "GDP Growth Rate"
+ concept_gdp_growth_rate_desc:0 "The rate at your country's [concept_gdp] increases or decreases over time reflecting changes in economic output driven by production, consumption, investment, and trade, and is commonly measured on an annual basis."
