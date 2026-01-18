@@ -1,0 +1,4 @@
+﻿concept_gdp_growth_rate = {
+    texture = "gfx/interface/icons/generic_icons/gdp.dds"
+	is_loading_tip = yes
+}
