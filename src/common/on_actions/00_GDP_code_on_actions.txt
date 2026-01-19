@@ -1,78 +1,95 @@
-﻿# on_game_started = {
-# 	effect = {
-# 		# Memento Mori
-# 		every_country = {
-#             set_variable = {
-#                 name = last_gdp
-#                 value = gdp
-#             }
+﻿on_monthly_pulse = {
+	effect = {
+		every_character_in_exile_pool = {
+			limit = {
+				popularity <= -100
+			}
+			kill_character = yes
+		}
 
-# 			every_interest_group = {
-# 				leader = {
-# 					if = {
-# 						limit = {
-# 							NOT = {
-# 								has_variable = memento_mori_immunity
-# 							}
-# 						}
-# 						set_variable = {
-# 							name = memento_mori_immunity
-# 							years = 5
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
-# }
+		every_character_in_jail = { # Music too loud? Right to jail. Right away. Driving too fast? Jail. Slow? Jail. You undercook fish? Believe it or not, jail.
+			save_scope_as = prisoner_scope
+			change_variable = { name = prison_time_var subtract = 1 }
+			if = {
+				limit = {
+					NOT = {
+						exists = var:prison_country
+					}
+				}
+				kill_character = yes
+			}
+			else_if = {
+				limit = {
+					exists = var:prison_country
+					var:prison_time_var <= 0
+				}
+				free_character_from_void = yes
+				owner ?= {
+					post_notification = prisoner_out_of_jail
+				}
+				remove_variable = prison_country
+				remove_variable = prison_time_var
+			}
+		}
 
-# on_yearly_pulse = {
-#     effect = {
-#         every_country = {
-#             if = {
-#                 limit = {
-#                     has_variable = last_gdp
-#                 }
-#                 if = {
-#                     limit = {
-#                         last_gdp > 0
-#                     }
+		if = {
+			limit = {
+				year < 1930
+				NOT = { has_global_variable = germany_formed }
+				c:GER ?= { is_country_alive = yes }
+			}
+			set_global_variable = germany_formed
+		}
 
-#                     # calculte GDP growth rate
-#                     set_variable = {
-#                         name = gdp_growth_rate
-#                         value = gdp
-#                     }
-#                     change_variable = {
-#                         name = gdp_growth_rate
-#                         substract = last_gdp
-#                     }
-#                     change_variable = {
-#                         name = gdp_growth_rate
-#                         divide = last_gdp
-#                     }
-#                 }
-#                 else = {
-#                     # prevent division by 0
-#                     set_variable = {
-#                         name = gdp_growth_rate
-#                         value = 0
-#                     }
-#                 }
-#             }
-#             else = {
-#                 # no last_gdp yet
-#                 set_variable = {
-#                     name = gdp_growth_rate
-#                     value = 0
-#                 }
-#             }
+		# Used to keep track of Council Republics for the purpose of the Red Scare.
+		# Our thanks to Brute for reporting this.
+		clear_global_variable_list = aes_country_list
+		every_country = {
+			limit = {
+				has_law = law_type:law_council_republic
+				country_rank > rank_value:minor_power
+			}
+			add_to_global_variable_list = {
+				name = aes_country_list
+				target = THIS
+			}
+            # initializa variables at 1836.1.1
+            if =  {
+                limit = {
+                    game_date <= 1836.1.1
+                }
+                set_variable = {
+                    name = last_year_gdp_growth_rate
+                    value = 0
+                }
+                set_variable = {
+                    name = year_start_gdp
+                    value = gdp
+                }
+                set_variable = {
+                    name = gdp_growth_rate
+                    value = 0
+                }
+            }
+            else = {
+                # track last year GDP growth rate
+                calculte_last_year_gdp_growth_rate = yes
+                # track annual projected GDP growth rate
+                calculate_annual_projected_gdp_growth_rate = yes
+            }
+		}
 
-#             # update last_gdp yearly
-#             set_variable = {
-#                 name = last_gdp
-#                 var = gdp
-#             }
-#         }
-#     }
-# }
+		if = {
+			limit = {
+				exists = global_var:krakatoa_temperature_drop
+				exists = global_var:krakatoa_temperature_recovery_rate
+			}
+			change_global_variable = {
+				name = krakatoa_temperature_drop
+				subtract = {
+					value = global_var:krakatoa_temperature_recovery_rate
+				}
+			}
+		}
+	}
+}

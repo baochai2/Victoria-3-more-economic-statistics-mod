@@ -1,0 +1,93 @@
+﻿# annual projected gdp growth rate = (current gdp - year start gdp) / year start gdp / (month - 1) * 12
+calculte_last_year_gdp_growth_rate = {
+    set_variable = {
+        name = stat_month
+        value = month
+    }
+    change_variable = {
+        name = stat_month
+        subtract = 1
+    }
+    scope:country = {
+        if = {
+            limit = {
+                var:stat_month <= 0  # calculate yearly
+            }
+            # safety check year_start_gdp = 0
+            if = {
+                limit = {
+                    var:year_start_gdp > 0
+                }
+                set_variable = {
+                    name = last_year_gdp_growth_rate
+                    value = gdp
+                }
+                change_variable = {
+                    name = last_year_gdp_growth_rate
+                    subtract = var:year_start_gdp
+                    divide = var:year_start_gdp
+                    divide = var:stat_month
+                    multiply = 12
+                    max = 100
+                    min = -100
+                }
+            }
+            else = {
+                if = {
+                    limit = {
+                        gdp > 0
+                    }
+                    set_variable = {
+                        name = last_year_gdp_growth_rate
+                        value = 100
+                    }
+                }
+                else = {
+                    set_variable = {
+                        name = last_year_gdp_growth_rate
+                        value = 0
+                    }
+                }
+            }
+        }
+    }
+}
+
+calculate_annual_projected_gdp_growth_rate = {
+    set_variable = {
+        name = stat_month
+        value = month
+    }
+    change_variable = {
+        name = stat_month
+        subtract = 1
+    }
+    scope:country = {
+        if = {
+            limit = {
+                var:stat_month <= 0
+            }
+            set_variable = {
+                name = year_start_gdp
+                value = gdp
+            }
+            set_variable = {
+                name = gdp_growth_rate
+                value = var:last_year_gdp_growth_rate
+            }
+        }
+        else = {
+            set_variable = {
+                name = gdp_growth_rate
+                value = gdp
+            }
+            change_variable = {
+                name = gdp_growth_rate
+                subtract = var:year_start_gdp
+                divide = var:year_start_gdp
+                divide = var:stat_month
+                multiply = 12
+            }
+        }
+    }
+}
