@@ -4,7 +4,7 @@
     },
     "[paradox]": {  // make sure you've installed Paradox Highlight extension
         "files.encoding": "utf8bom",
-        "editor.insertSpaces": false,
+        "editor.insertSpaces": true,
         "editor.detectIndentation": false
     },
     "files.eol": "\n",
