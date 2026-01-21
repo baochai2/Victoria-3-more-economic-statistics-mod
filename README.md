@@ -1,8 +1,8 @@
 <h1 align="center">
-    More Economic Statistics
+    More Economic Indicators
 </h1>
 
-**More Economic Statistics** is a Victoria 3 mod that introduces more economic statistics including GDP growth rate, debt growth rate and visualizes them.
+**More Economic Indicators** is a Victoria 3 mod that introduces more economic indicators including GDP growth rate, loan growth rate and visualizes them.
 
 ## Supported Version
 
