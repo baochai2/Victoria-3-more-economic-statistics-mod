@@ -1,26 +1,26 @@
 ﻿on_monthly_pulse = {
     on_actions = {
-        statistics_monthly_pulse
+        indicators_monthly_pulse
     }
 }
 
 on_monthly_pulse_country = {
     on_actions = {
-        statistics_monthly_pulse_country
+        indicators_monthly_pulse_country
     }
 }
 
-statistics_monthly_pulse = {
+indicators_monthly_pulse = {
     effect = {
         # update stat month monthly
         update_stat_month = yes
     }
 }
 
-statistics_monthly_pulse_country = {
+indicators_monthly_pulse_country = {
     effect = {
         # initializa variables for only once
-        initialize_stat_variables = yes
+        initialize_indicators_variables = yes
         # track last year GDP growth rate
         calculte_last_year_gdp_growth_rate = yes
         # track annual projected GDP growth rate

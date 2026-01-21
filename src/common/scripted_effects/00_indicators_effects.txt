@@ -16,7 +16,7 @@
     }
 }
 
-initialize_stat_variables = {
+initialize_indicators_variables = {
     if = {
         limit = {
             NOT = {
