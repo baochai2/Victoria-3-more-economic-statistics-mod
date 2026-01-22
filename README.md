@@ -2,7 +2,7 @@
     More Economic Indicators
 </h1>
 
-**More Economic Indicators** is a Victoria 3 mod that introduces more economic indicators including GDP growth rate, loan growth rate and visualizes them.
+**More Economic Indicators** is a Victoria 3 mod that introduces more economic indicators including GDP growth rate, credit growth rate and visualizes them.
 
 ## Supported Version
 
