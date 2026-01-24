@@ -1,8 +1,8 @@
 <h1 align="center">
-    More Economic Indicators
+    More GDP Indicators
 </h1>
 
-**More Economic Indicators** is a Victoria 3 mod that introduces more economic indicators including GDP growth rate, credit growth rate(maybe) and visualizes them.
+**More Economic Indicators** is a Victoria 3 mod that introduces more GDP indicators including GDP growth rate, add them in country ranking and visualizes them.
 
 ## Supported Version
 
