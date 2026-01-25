@@ -1,8 +1,8 @@
 <h1 align="center">
-    More GDP Indicators
+    GDP Growth Indicators
 </h1>
 
-**More GDP Indicators** is a Victoria 3 mod that introduces more GDP indicators including GDP growth rate, add them in country ranking and visualizes them.
+**GDP Growth Indicators** is a Victoria 3 mod that introduces GDP growth rate, and visualizes it.
 
 ## Supported Version
 
